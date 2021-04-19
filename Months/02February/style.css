@@ -1,0 +1,276 @@
+@import url(https://fonts.googleapis.com/css2?family=DM+Sans);
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Sans";
+  box-sizing: border-box;
+}
+:root {
+  --background-color: #05f2;
+  --background-overlay-color: #fff;
+  --text-color: #000;
+  --highlight-color: #70f;
+}
+body {
+  background: var(--background-color);
+}
+.app {
+  display: flex;
+  height: 100vh;
+  overflow: auto;
+}
+header {
+  width: 150px;
+  height: 100%;
+  align-self: flex-start;
+  background: var(--background-overlay-color);
+  padding: 37.5px;
+  overflow: auto;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+header::-webkit-scrollbar,
+.events::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+a {
+  color: inherit;
+}
+header nav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  border-radius: 24px;
+  margin-bottom: 50px;
+  transition: background 0.2s, color 0.2s;
+}
+header nav a:not([data-selected]) {
+  color: #bbd2ff;
+}
+header nav a[data-selected],
+header nav a:hover {
+  color: #05f;
+  background: #05f2;
+}
+.calendar-header:hover {
+  color: black !important;
+  background-color: white !important;
+  cursor: none;
+}
+header nav svg {
+  width: 36px;
+}
+header nav ul {
+  list-style: none;
+}
+h1 {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+.calendar {
+  margin: auto;
+  padding: 50px;
+  width: 850px;
+}
+.calendar::after {
+  content: "";
+  display: block;
+  height: 50px;
+}
+.calendar-layout {
+  padding: 50px;
+  background: white;
+  border-radius: 24px;
+  display: flex;
+  width: 750px;
+  flex-wrap: wrap;
+}
+.calendar-layout h2 {
+  flex: 1 100%;
+}
+.calendar-layout span {
+  width: calc(100% / 14);
+  display: block;
+  margin: calc(100% / 28);
+  padding: calc(100% / 56) calc(100% / 28);
+  border-radius: 100px;
+  text-indent: -7.5px;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.calendar-layout span:not(.null):hover,
+.calendar-layout span:not(.null)[data-selected] {
+  background: #bbd2ff;
+  color: #05f;
+}
+
+@media (max-width: 1400px) {
+  header {
+    width: 100px;
+    padding: 25px;
+  }
+  header ul li a {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 25px;
+  }
+  .calendar {
+    padding: 50px;
+    width: 600px;
+  }
+  .calendar-layout {
+    width: 500px;
+  }
+}
+@media (max-width: 700px) {
+  header {
+    width: 50px;
+    padding: 25px;
+  }
+  header ul li a {
+    width: 50px;
+    height: 50px;
+    transform: translateX(-25px);
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .calendar {
+    padding: 25px;
+    width: 600px;
+  }
+  .calendar-layout {
+    margin: 0 auto;
+    width: 400px;
+  }
+}
+@media (max-width: 500px) {
+  .calendar {
+    padding: 20px;
+    padding-left: 10px;
+    width: 600px;
+  }
+  .calendar-layout {
+    margin: 0 auto;
+    padding: 30px;
+    width: 290px;
+  }
+}
+
+.delhi {
+  background-color: skyblue;
+  margin-left: 0;
+}
+.dallas {
+  background-color: cornflowerblue;
+  margin-left: 0;
+}
+.both {
+  background: linear-gradient(135deg, skyblue 50%, cornflowerblue 50%);
+}
+.info {
+  height: 10px;
+  width: 10px;
+}
+
+.info-main {
+  display: flex;
+  justify-content: space-evenly;
+}
+.sub {
+  display: flex;
+}
+.info {
+  margin-top: 1.5vh;
+}
+
+.delhi-circle {
+  width: 50px;
+  height: 50px;
+  background-color: skyblue;
+  border-radius: 100%;
+}
+
+.dallas-circle {
+  width: 50px;
+  height: 50px;
+  background-color: cornflowerblue;
+  border-radius: 100%;
+}
+.both-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #114e60;
+  border-radius: 100%;
+}
+
+.wrapper {
+  background: linear-gradient(
+    124deg,
+    #ee8282,
+    #ec90bb,
+    #ce7eee,
+    #71e9df,
+    #aae778,
+    #f5b981,
+    #ee8970,
+    #b97b7b
+  );
+  background-size: 1800% 1800%;
+
+  -webkit-animation: rainbow 10s ease infinite;
+  -z-animation: rainbow 10s ease infinite;
+  -o-animation: rainbow 10s ease infinite;
+  animation: rainbow 10s ease infinite;
+}
+
+@-webkit-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
+@-moz-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
+@-o-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
+@keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
